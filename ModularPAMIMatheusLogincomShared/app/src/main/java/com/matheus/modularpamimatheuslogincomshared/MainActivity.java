@@ -21,6 +21,16 @@ public class MainActivity extends AppCompatActivity {
     Button criar, entrar;
     CheckBox chkbox;
 
+    /*
+    public -> escopo global. Pode ser vista em qualquer classe do pacote
+    static -> que podemos usar a variavel sem precisa instanciar a classe.
+    final  -> é uma constante, ou seja o conteúdo não pode mudar.
+    O nome tem que ser tudo MAIUSCULO, separado por underline quando for composto
+     */
+public static final String PREF_NAME     = "login";
+public static final String USER          = "user";
+public static final String PASS          = "pass";
+public static final String REMEMBER      = "remember";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
         senha  = findViewById(R.id.edt_senha);
         entrar = findViewById(R.id.btn_entrar);
         criar  = findViewById(R.id.btn_novo);
-        chkbox = findViewById(R.id.checkBox);
+        chkbox = findViewById(R.id.checkbox);
     }
 
     private boolean validarDados( String valNome, String valEmail, String valSenha ) {
@@ -87,17 +97,19 @@ public class MainActivity extends AppCompatActivity {
 
         if (valNome.equals("")) {
             retorno = false;
-            nome.setError("Esse campo nao pode ficar vazio");
+            nome.setError("Campo nome nao pode ficar vazio");
             nome.requestFocus();
 
         }
         if (valEmail.equals("")) {
             retorno = false;
-            email.setError("Esse campo nao pode ficar vazio");
+            email.setError("Campo email nao pode ficar vazio");
+            email.requestFocus();
         }
-        if (valSenha.equals("Esse campo nao pode ficar vazio")) {
+        if (valSenha.equals("")) {
             retorno = false;
-            senha.setError("Esse campo nao pode ficar vazio");
+            senha.setError("Campo senha nao pode ficar vazio");
+            senha.requestFocus();
         }
         return retorno;
     }

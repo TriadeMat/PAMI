@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Modular PAMI Matheus Login com Shared</string>
+    <string name="titulo">Clique em Logout para sair do sistema</string>
+    <string name="logout">Logout</string>
 </resources>
